@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title> TradeGame </title>
+        <meta http-equiv="Content-Type" content="text/html; charset=EUC-JP" />
+
+        <link href="style.css" rel="stylesheet" />
+        <!-- <link href="../Images/testing_favicon.png" rel="icon" type="image/png" /> -->
+
+        <meta http-equiv="Content-Type" content="text/html; charset=EUC-JP" />
+    </head>
+
+    <body>
+        <noscript> You will need JavaScript enabled and working to play, and you don't seem to have that. =( </noscript>
+
+        <main>
+            <div id="build_btns_div">
+                <button id="btn_build_sawmill" onclick="build_sawmill();"> Build Sawmill (Cost: 50 wood, 25 stone) </button>
+                <button id="btn_build_stone_mine" onclick="build_stone_mine();"> Build Stone Mine (Cost: 50 stone, 25 wood) </button>
+                <button id="btn_build_iron_mine" onclick="build_iron_mine();"> Build Iron Mine (Cost: 100 stone, 50 iron) </button>
+                <button id="btn_build_gold_mine" onclick="build_gold_mine();"> Build Gold Mine (Cost: 100 iron, 50 stone) </button>
+                <button id="btn_build_storehouse" onclick="build_storehouse();"> Build Storehouse (Cost: 100 wood, 25 iron) </button>
+                <button id="btn_build_treasure_room" onclick="build_treasure_room();"> Build Treasure Room (Cost: 75 iron, 25 gold) </button> 
+            </div>
+
+            <p id="resource_lbls_p">
+                <h3> Resources: </h3>
+
+                <span id="lbl_wood_amount"> Wood: </span> <br />
+                <span id="lbl_stone_amount"> Stone: </span> <br />    <!-- I have to make JavaScript insert this, because it involves variables from the code. -->
+                <span id="lbl_iron_amount"> Iron: </span> <br />
+                <span id="lbl_gold_amount"> Gold: </span> <br />
+                <span id="lbl_treasure_amount"> Treasure: </span> <br />
+            </p>
+            <p id="building_lbls_p">
+                <span id="lbl_sawmill_amount"> Sawmills (produces 5 wood per turn): </span> <br />
+                <span id="lbl_stone_mine_amount"> Stone Mines (produces 10 stone per turn): </span> <br />
+                <span id="lbl_iron_mine_amount"> Iron Mines (produces 5 iron and 10 stone per turn): </span> <br />
+                <span id="lbl_gold_mine_amount"> Gold Mines (produces 1 gold and 10 stone per turn): </span> <br />
+                <span id="lbl_storehouse_amount"> Storehouses (allows you to hold 100 more of each resource): </span> <br />
+                <span id="lbl_treasure_room_amount"> Treasure Rooms (allows you to hold 10 more treasure): </span> <br />
+            </p>
+
+            <div id="div_trades" class="some_class">    <!-- That class doesn't do anything. -->
+                <h3> Trades: </h3>
+                <button onclick="do_trade_1();" id="trade_1_btn"> TRADE 1 HERE </button>
+                <button onclick="do_trade_2();" id="trade_2_btn"> TRADE 2 HERE </button>    <!-- This will be inserted in the JavaScript, so I can use a template literal. -->
+                <button onclick="do_trade_3();" id="trade_3_btn"> TRADE 3 HERE </button>
+            </div> <br />
+
+            <button id="btn_next_turn" onclick="next_turn();"> Next Turn </button>
+
+            <button id="btn_open_menu" onclick="show_menu();"> Menu </button>
+        </main>
+
+        <div id="menu">
+            <button id="btn_open_tutorial" onclick="show_tutorial();"> Tutorial </button>
+            <button id="btn_open_whats_new" onclick="show_whats_new();"> What's new </button>
+
+            <div id="div_save_load">
+                <input type="text" id="ent_save_code">
+                <button onclick="save_code_write()">Save</button>
+                <button onclick="save_code_read()">Load</button>
+            </div>
+
+            <button id="btn_close_menu" onclick="hide_menu();"> Close menu </button>
+            <button id="btn_quit_game" onclick="quit_game();"> Quit Game </button>
+        </div>
+
+        <div id="tutorial">
+            <p id="msg_tutorial"> TUTORIAL PAGE HERE (your JavaScript isn't working or is turned off) </p>
+
+            <button id="btn_prev_tutorial" onclick="prev_tutorial_page();"> Previous </button>
+            <button id="btn_next_tutorial" onclick="next_tutorial_page();"> Next </button>
+
+            <button id="btn_close_tutorial" onclick="hide_tutorial();"> Close tutorial </button>
+        </div>
+
+        <div id="whats_new">
+            <p id="msg_whats_new">
+                TradeGame v1.1 <br /> <br />
+                Added: <br />
+                Treasure Room (buildings['treasure_room'])
+                <br /> <br />
+                Changed: <br />
+                Nothing
+                <br /> <br />
+                Removed: <br />
+                Nothing
+                <br /> <br />
+                Fixed: <br />
+                Nothing
+            </p>
+            <button id="close_whats_new" onclick="hide_whats_new();"> Close What's New </button>
+        </div> <br /> <br />
+        
+        <!-- Translator's save code -->
+        <!-- 4306/35100/35100/35100/35100/80/85/147/243/350/23820/2381 -->
+
+        <footer>
+            <p>
+                Hey everyone, I just wanted to say that this website was translated from a Python document written by a friend of mine.
+                I did not write the code or make the game, I just translated it into JavaScript and made it a webpage so I could style 
+                it with CSS. Some code was copied and pasted from the Python for efficiency. No AI, generative AI, or artificial neural networks 
+                were used at any point.
+            </p>
+        </footer>
+
+        <div class="dont_show" style="display: none;" aria-hidden="true"> )    This is so the opening bracket in the noscript tag doesn't turn red. 
+            <audio>
+                <!-- <source src="../Audio/beep-02.wav" type="audio/wav" /> -->
+                <!-- <source src="../Audio/beep-02.mp3" type="audio/mpeg" /> -->
+                Your browser does not support audio.
+            </audio>
+        </div>
+
+        <script type="text/javascript" src="script.js"></script>    <!-- No space between <script> and </script> tags, otherwise it won't work. -->
+    </body>
+</html>
